@@ -12,13 +12,15 @@ import { HomeComponent } from './home/home.component';
 import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 import { UsernameComponent } from './username/username.component';
 import { environment } from 'src/environments/environment';
+import { BsNavbarComponent } from './bs-navbar/bs-navbar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     ShoppingCartComponent,
-    UsernameComponent
+    UsernameComponent,
+    BsNavbarComponent
   ],
   imports: [
     BrowserModule,
