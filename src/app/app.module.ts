@@ -1,17 +1,17 @@
+import { AuthService } from './auth.service';
 import { LoginComponent } from './login/login.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { RouterModule } from '@angular/router';
 import { AngularFireModule } from 'angularfire2';
-import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
-import { UsernameComponent } from './username/username.component';
 import { environment } from 'src/environments/environment';
 import { BsNavbarComponent } from './bs-navbar/bs-navbar.component';
 import { ProductsComponent } from './products/products.component';
@@ -26,7 +26,6 @@ import { AdminOrdersComponent } from './admin/admin-orders/admin-orders.componen
     AppComponent,
     HomeComponent,
     ShoppingCartComponent,
-    UsernameComponent,
     BsNavbarComponent,
     ProductsComponent,
     CheckOutComponent,
@@ -39,7 +38,7 @@ import { AdminOrdersComponent } from './admin/admin-orders/admin-orders.componen
   imports: [
     BrowserModule,
     AngularFireModule.initializeApp(environment.firebase),
-    AngularFireDatabaseModule,
+    AngularFirestoreModule,
     AngularFireAuthModule,
     RouterModule.forRoot([
       { path: '', component: HomeComponent },
@@ -55,7 +54,7 @@ import { AdminOrdersComponent } from './admin/admin-orders/admin-orders.componen
     AppRoutingModule,
     NgbModule,
   ],
-  providers: [],
+  providers: [ AuthService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
