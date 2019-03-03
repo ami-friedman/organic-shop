@@ -61,6 +61,5 @@ typings/
 .next
 
 # Deployment direcotries
-.dist/
+dist/
 .firebase/
-public/
