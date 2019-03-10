@@ -1,4 +1,4 @@
-import { switchMap } from 'rxjs/operators';
+import { map } from 'rxjs/operators';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { Injectable } from '@angular/core';
 
@@ -10,6 +10,9 @@ export class CategoryService {
   constructor(private db: AngularFireDatabase) { }
 
   getCategories() {
-    return this.db.list('/categories').valueChanges();
+    return this.db.list('/categories').snapshotChanges()
+    .pipe(map( categories => {
+      return categories.map(c => ({key: c.payload.key, ...c.payload.val()}));
+    }));
   }
 }
