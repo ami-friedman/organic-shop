@@ -10,6 +10,7 @@ import { RouterModule } from '@angular/router';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
+import { CustomFormsModule } from 'ngx-custom-validators';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -63,6 +64,7 @@ import { FormsModule } from '@angular/forms';
     ]),
     AppRoutingModule,
     NgbModule,
+    CustomFormsModule,
   ],
   providers: [
     AuthService,
