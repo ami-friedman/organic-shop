@@ -20,18 +20,18 @@ export class AuthService {
               private route: ActivatedRoute,
               private userService: UserService) {
     this.user$ = afAuth.authState;
-    this.user$.subscribe( user => {
+    this.user$.subscribe(user => {
       if (user) {
         this.userService.save(user);
-        const returnUrl = this.route.snapshot.queryParamMap.get('returnUrl') || '/';
-        this.router.navigate([returnUrl]);
+        const returnUrl = this.route.snapshot.queryParamMap.get('returnUrl');
+        if (returnUrl) this.router.navigate([returnUrl]);
       }
     });
   }
 
   get appUser$(): Observable<AppUser> {
     return this.user$
-    .pipe(switchMap( user => this.userService.get(user.uid)));
+      .pipe(switchMap(user => this.userService.get(user.uid)));
   }
 
   login() {
