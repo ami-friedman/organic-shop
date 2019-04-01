@@ -26,6 +26,8 @@ import { AdminProductsComponent } from './admin/admin-products/admin-products.co
 import { AdminOrdersComponent } from './admin/admin-orders/admin-orders.component';
 import { ProductFormComponent } from './admin/product-form/product-form.component';
 import { FormsModule } from '@angular/forms';
+import { ProductCardComponent } from './product-card/product-card.component';
+import { ProductFilterComponent } from './product-filter/product-filter.component';
 
 @NgModule({
   declarations: [
@@ -41,6 +43,8 @@ import { FormsModule } from '@angular/forms';
     AdminOrdersComponent,
     LoginComponent,
     ProductFormComponent,
+    ProductCardComponent,
+    ProductFilterComponent,
   ],
   imports: [
     BrowserModule,
