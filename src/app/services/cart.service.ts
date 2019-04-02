@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { Product } from '../models/product';
 import { take } from 'rxjs/operators';
+import { ShoppingCart } from '../models/shopping-cart';
 
 
 @Injectable({
@@ -9,7 +10,7 @@ import { take } from 'rxjs/operators';
 })
 export class CartService {
 
-  items;
+  cart = new ShoppingCart();
 
   private CART_ID_KEY = 'cartId';
   private CART_PATH = '/shopping-carts/';
@@ -23,7 +24,9 @@ export class CartService {
   private initCartFromLocalStorage() {
     if (this.cartId) {
       this.db.object(this.CART_PATH + this.cartId).valueChanges()
-        .subscribe((cart: any) => this.items = cart.items);
+        .subscribe((cart: ShoppingCart) => {
+          this.cart.items = cart.items;
+        });
     }
   }
 

@@ -24,9 +24,9 @@ export class ProductCardComponent {
   }
 
   getQuantity() {
-    if (!this.cartService.items) return 0;
+    if (!this.cartService.cart) return 0;
 
-    return this.cartService.items[this.product.key] ? this.cartService.items[this.product.key].quantity : 0;
+    return this.cartService.cart.items[this.product.key] ? this.cartService.cart.items[this.product.key].quantity : 0;
    
   }
 
