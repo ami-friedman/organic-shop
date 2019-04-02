@@ -27,6 +27,7 @@ import { ProductFormComponent } from './admin/product-form/product-form.componen
 import { FormsModule } from '@angular/forms';
 import { ProductCardComponent } from './product-card/product-card.component';
 import { ProductFilterComponent } from './product-filter/product-filter.component';
+import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 
 @NgModule({
   declarations: [
@@ -43,6 +44,7 @@ import { ProductFilterComponent } from './product-filter/product-filter.componen
     ProductFormComponent,
     ProductCardComponent,
     ProductFilterComponent,
+    ShoppingCartComponent,
   ],
   imports: [
     BrowserModule,
@@ -53,6 +55,7 @@ import { ProductFilterComponent } from './product-filter/product-filter.componen
     RouterModule.forRoot([
       { path: '', component: ProductsComponent },
       { path: 'products', component: ProductsComponent },
+      { path: 'shopping-cart', component: ShoppingCartComponent },
       { path: 'login', component: LoginComponent },
 
       { path: 'check-out', component: CheckOutComponent, canActivate: [AuthGuard] },

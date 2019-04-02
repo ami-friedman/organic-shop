@@ -3,6 +3,7 @@ import { AngularFireDatabase } from 'angularfire2/database';
 import { Product } from '../models/product';
 import { take } from 'rxjs/operators';
 import { ShoppingCart } from '../models/shopping-cart';
+import { Observable } from 'rxjs';
 
 
 @Injectable({
@@ -57,6 +58,10 @@ export class CartService {
           quantity: (item ? item.quantity : 0) + change,
         })
       })
+  }
+
+  getCart(): Observable<ShoppingCart> {
+    return this.db.object(this.CART_PATH + this.cartId).valueChanges() as Observable<ShoppingCart>;
   }
 
   addToCart(product: Product) {
