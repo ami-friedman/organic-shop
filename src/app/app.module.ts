@@ -15,7 +15,6 @@ import { CustomFormsModule } from 'ngx-custom-validators';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
-import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 import { environment } from 'src/environments/environment';
 import { BsNavbarComponent } from './bs-navbar/bs-navbar.component';
 import { ProductsComponent } from './products/products.component';
@@ -33,7 +32,6 @@ import { ProductFilterComponent } from './product-filter/product-filter.componen
   declarations: [
     AppComponent,
     HomeComponent,
-    ShoppingCartComponent,
     BsNavbarComponent,
     ProductsComponent,
     CheckOutComponent,
@@ -55,7 +53,6 @@ import { ProductFilterComponent } from './product-filter/product-filter.componen
     RouterModule.forRoot([
       { path: '', component: ProductsComponent },
       { path: 'products', component: ProductsComponent },
-      { path: 'shopping-cart', component: ShoppingCartComponent },
       { path: 'login', component: LoginComponent },
 
       { path: 'check-out', component: CheckOutComponent, canActivate: [AuthGuard] },
