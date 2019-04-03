@@ -1,4 +1,4 @@
-import { AdminAuthGuard } from 'shared/services/admin-auth-guard.service';
+import { AdminAuthGuard } from '../admin/services/admin-auth-guard.service';
 import { AuthService } from 'shared/services/auth.service';
 import { Component } from '@angular/core';
 import { CartService } from 'shared/services/cart.service';
