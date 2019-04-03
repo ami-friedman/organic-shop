@@ -1,5 +1,6 @@
 import { CartService } from '../services/cart.service';
 import { ShoppingCartItem, IShoppingCartItem } from './shopping-cart-item';
+import { Product } from './product';
 
 export class ShoppingCart {
     items: IShoppingCartItem;
@@ -7,6 +8,11 @@ export class ShoppingCart {
 
     constructor() {
 
+    }
+
+    getItemQuantity(product: Product) {
+        if (!this.items || !this.items[product.key] ) return 0;
+        return this.items[product.key].quantity;
     }
   
     get totalQuantity() {

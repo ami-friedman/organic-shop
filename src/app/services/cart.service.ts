@@ -23,6 +23,25 @@ export class CartService {
 
   }
 
+  addToCart(product: Product) {
+    if (!this.cartId) {
+      this.createCartAndSetLocalStorage();
+    }
+    this.updateCart(product, 1);
+  }
+
+  removeFromCart(product: Product) {
+    if (!this.cartId) {
+      this.createCartAndSetLocalStorage();
+    }
+    this.updateCart(product, -1);
+  }
+
+  clearCart() {
+    this.initCartFromLocalStorage();
+    this.db.object(this.CART_PATH + this.cartId + this.ITEMS_PATH).remove();
+  }
+
   private initCartFromLocalStorage() {
     if (this.cartId) {
       this.db.object(this.CART_PATH + this.cartId).valueChanges()
@@ -63,26 +82,17 @@ export class CartService {
     const itemRef = this.getItemRef(product.key);
     itemRef.valueChanges().pipe(take(1))
       .subscribe((item: any) => {
+        const quantity = (item ? item.quantity : 0) + change;
+        if (quantity === 0 ) itemRef.remove();
+        else
         itemRef.update({
           product,
-          quantity: (item ? item.quantity : 0) + change,
+          quantity,
         })
       })
   }
 
-  addToCart(product: Product) {
-    if (!this.cartId) {
-      this.createCartAndSetLocalStorage();
-    }
-    this.updateCart(product, 1);
-  }
-
-  removeFromCart(product: Product) {
-    if (!this.cartId) {
-      this.createCartAndSetLocalStorage();
-    }
-    this.updateCart(product, -1);
-  }
+  
 
 }
 

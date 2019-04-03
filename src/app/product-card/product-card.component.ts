@@ -18,16 +18,4 @@ export class ProductCardComponent {
   addToCart() {
     this.cartService.addToCart(this.product);
   }
-
-  removeFromCart() {
-    this.cartService.removeFromCart(this.product);
-  }
-
-  getQuantity() {
-    if (!this.cartService.cart) return 0;
-
-    return this.cartService.cart.items[this.product.key] ? this.cartService.cart.items[this.product.key].quantity : 0;
-   
-  }
-
 }

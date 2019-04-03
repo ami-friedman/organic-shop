@@ -2,24 +2,32 @@
 
 <p>Your have {{cart.totalQuantity}} items in your shopping cart. </p>
 
-<table class="table">
-    <thead>
-      <tr>
-        <th>Product</th>
-        <th>Quantity</th>
-        <th>Price</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let item of cart.itemsList">
-        <td>{{ item.product.title }}</td>
-        <td>{{ item.quantity }}</td>
-        <td>{{ item.totalPrice | currency:'USD' }}</td>
-      </tr>
-    </tbody>
-    <tfoot>
-      <th></th>
-      <th></th>
-      <th>{{ this.cart.totalPrice | currency:'USD' }}</th>
-    </tfoot>
-  </table>
+<div class="row col-10">
+    <table class="table">
+        <thead>
+          <tr>
+            <th>Product</th>
+            <th class="text-center">Quantity</th>
+            <th class="text-right">Price</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of cart.itemsList">
+            <td>{{ item.product.title }}</td>
+            <td class="text-center" style="width: 230px"> <product-quantity [product]="item.product"></product-quantity> </td>
+            <td class="text-right">{{ item.totalPrice | currency:'USD' }}</td>
+          </tr>
+        </tbody>
+        <tfoot>
+          <th></th>
+          <th></th>
+          <th class="text-right">{{ this.cart.totalPrice | currency:'USD' }}</th>
+        </tfoot>
+      </table>
+</div>
+
+
+  <button class="btn btn-danger btn-sm"
+  (click)="cartService.clearCart()">
+    Clear Shopping List
+  </button>

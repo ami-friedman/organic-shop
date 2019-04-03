@@ -11,7 +11,7 @@ export class ShoppingCartComponent {
   cart: ShoppingCart;
   
 
-  constructor(cartService: CartService) { 
+  constructor(public cartService: CartService) { 
     this.cart = cartService.cart;
   }
 
