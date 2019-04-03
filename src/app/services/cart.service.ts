@@ -4,6 +4,7 @@ import { Product } from '../models/product';
 import { take } from 'rxjs/operators';
 import { ShoppingCart } from '../models/shopping-cart';
 import { Observable } from 'rxjs';
+import { ShoppingCartItem } from '../models/shopping-cart-item';
 
 
 @Injectable({
@@ -27,7 +28,16 @@ export class CartService {
       this.db.object(this.CART_PATH + this.cartId).valueChanges()
         .subscribe((cart: ShoppingCart) => {
           this.cart.items = cart.items;
+          this.reCreateItemList();
         });
+    }
+  }
+
+  private reCreateItemList() {
+    this.cart.itemsList = [];
+    for (let productId in this.cart.items) {
+      const item = new ShoppingCartItem(this.cart.items[productId].product, this.cart.items[productId].quantity);
+      this.cart.itemsList.push(item);
     }
   }
 
@@ -58,10 +68,6 @@ export class CartService {
           quantity: (item ? item.quantity : 0) + change,
         })
       })
-  }
-
-  getCart(): Observable<ShoppingCart> {
-    return this.db.object(this.CART_PATH + this.cartId).valueChanges() as Observable<ShoppingCart>;
   }
 
   addToCart(product: Product) {

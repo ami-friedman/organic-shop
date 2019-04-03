@@ -1,7 +1,9 @@
 import { CartService } from '../services/cart.service';
+import { ShoppingCartItem, IShoppingCartItem } from './shopping-cart-item';
 
 export class ShoppingCart {
-    items;
+    items: IShoppingCartItem;
+    itemsList: ShoppingCartItem[] = [];
 
     constructor() {
 
@@ -13,6 +15,14 @@ export class ShoppingCart {
             count += this.items[productId].quantity;
         }
         return count;
+    }
+
+    get totalPrice() {
+        let sum = 0;
+        for (let item of this.itemsList) {
+            sum += item.totalPrice;
+        }
+        return sum;
     }
 
     get productIds() {
