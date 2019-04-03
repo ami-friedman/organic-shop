@@ -1,6 +1,6 @@
 import { switchMap } from 'rxjs/operators';
 import { ActivatedRoute } from '@angular/router';
-import { ProductService } from './../services/product.service';
+import { ProductService } from 'shared/services/product.service';
 import { Component } from '@angular/core';
 
 @Component({

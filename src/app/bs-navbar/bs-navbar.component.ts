@@ -1,8 +1,8 @@
-import { AppUser } from './../models/app-user';
-import { AdminAuthGuard } from './../services/admin-auth-guard.service';
-import { AuthService } from '../services/auth.service';
+import { AdminAuthGuard } from 'shared/services/admin-auth-guard.service';
+import { AuthService } from 'shared/services/auth.service';
 import { Component } from '@angular/core';
-import { CartService } from '../services/cart.service';
+import { CartService } from 'shared/services/cart.service';
+import { AppUser } from 'shared/models/app-user';
 
 @Component({
   selector: 'bs-navbar',

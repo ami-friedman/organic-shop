@@ -1,7 +1,7 @@
-import { AdminAuthGuard } from './services/admin-auth-guard.service';
-import { UserService } from './services/user.service';
-import { AuthGuard } from './services/auth-guard.service';
-import { AuthService } from './services/auth.service';
+import { AdminAuthGuard } from 'shared/services/admin-auth-guard.service';
+import { UserService } from 'shared/services/user.service';
+import { AuthGuard } from 'shared/services/auth-guard.service';
+import { AuthService } from 'shared/services/auth.service';
 import { LoginComponent } from './login/login.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -15,7 +15,7 @@ import { CustomFormsModule } from 'ngx-custom-validators';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
-import { environment } from 'src/environments/environment';
+import { environment } from 'src/environments/environment'
 import { BsNavbarComponent } from './bs-navbar/bs-navbar.component';
 import { ProductsComponent } from './products/products.component';
 import { CheckOutComponent } from './check-out/check-out.component';

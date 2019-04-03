@@ -1,4 +1,3 @@
-import { CartService } from '../services/cart.service';
 import { ShoppingCartItem, IShoppingCartItem } from './shopping-cart-item';
 import { Product } from './product';
 
